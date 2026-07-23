@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytix | IMT Nagpur</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Configuration for Custom Colors & Dark Mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        // Light Mode: Blueish Green
+                        brandLight: '#0d9488', // Teal 600
+                        brandLightHover: '#0f766e', // Teal 700
+                        // Dark Mode: Purple Neon
+                        brandDark: '#d946ef', // Fuchsia 500
+                        brandDarkHover: '#c026d3', // Fuchsia 600
+                        neonGlow: 'rgba(217, 70, 239, 0.5)',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(217, 70, 239, 0.6), 0 0 30px rgba(217, 70, 239, 0.4)',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 25s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Smooth transition for theme switching */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <!-- Logo area -->
+            <div class="flex-shrink-0 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-gray-700 overflow-hidden bg-white/80 dark:bg-gray-900/80 shadow-sm">
+                    <img src="assets/BAIT.png" alt="BAIT Logo" class="w-full h-full object-cover">
+                </div>
+                <span class="font-bold text-xl tracking-wide">Analytix</span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="text-brandLight dark:text-brandDark border-b-2 border-brandLight dark:border-brandDark pb-1">Home</a>
+                <a href="about.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">About Us</a>
+                <a href="events.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Events</a>
+                <a href="resources.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Resources</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <button id="menu-toggle" class="md:hidden p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors focus:outline-none" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+
+                <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors focus:outline-none">
+                    <i id="icon-sun" class="fa-solid fa-sun text-yellow-500 hidden dark:block"></i>
+                    <i id="icon-moon" class="fa-solid fa-moon text-gray-600 block dark:hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[60] hidden md:hidden">
+        <div class="absolute inset-0 bg-black/40" id="mobile-menu-overlay"></div>
+        <div class="absolute right-0 top-0 h-full w-72 max-w-[85%] bg-white dark:bg-gray-900 shadow-2xl p-6 pt-20 transform transition-transform duration-300 translate-x-full">
+            <button id="menu-close" class="absolute top-4 right-4 p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="flex flex-col gap-4 font-medium text-lg">
+                <a href="index.html" class="text-brandLight dark:text-brandDark transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">About Us</a>
+                <a href="events.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Events</a>
+                <a href="resources.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Resources</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Quick Announcement Ticker -->
+    <div class="bg-brandLight text-white dark:bg-gray-900 dark:text-brandDark dark:border-b dark:border-brandDark/30 text-sm py-2 text-center shadow-[inset_0_0_10px_rgba(0,0,0,0.1)] dark:shadow-[0_0_10px_rgba(217,70,239,0.2)]">
+        <span class="font-semibold animate-pulse">New:</span> Analytix is now online!
+    </div>
+
+    <!-- Hero Section -->
+    <main class="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden min-h-[calc(100vh-4rem-3rem)]">
+        
+        <!-- Animated logo asset -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <video
+                class="w-full h-full object-cover opacity-20 dark:opacity-30"
+                autoplay
+                loop
+                muted
+                playsinline
+                aria-label="Animated logo"
+            >
+                <source src="assets/animate_the_word_Analytix_for.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="text-center z-10 max-w-3xl mx-auto relative">
+            <div class="absolute inset-0 -z-10 rounded-2xl bg-white/70 dark:bg-gray-950/70 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_25px_rgba(217,70,239,0.15)]"></div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 px-4 pt-6">
+                The Premier BAIT Forum of <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandLight to-cyan-500 dark:from-brandDark dark:to-purple-500 dark:drop-shadow-[0_0_15px_rgba(217,70,239,0.5)]">
+                    IMT Nagpur
+                </span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-200 mb-10 max-w-2xl mx-auto backdrop-blur-sm bg-white/70 dark:bg-black/50 p-4 rounded-lg shadow-sm">
+                Bridging the gap between theoretical knowledge and practical application in Business Analytics and Information Technology. Connect, learn, and build with data.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pb-6">
+                <!-- Primary CTA Button - REDIRECTS TO GOOGLE FORM -->
+                <!-- Replace 'YOUR_GOOGLE_FORM_LINK_HERE' with your actual shared form URL -->
+                <a href="form.html" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-md font-bold text-white bg-brandLight hover:bg-brandLightHover dark:bg-brandDark dark:hover:bg-brandDarkHover dark:shadow-neon transition-all duration-300 flex items-center justify-center gap-2">
+                    Join the Forum <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                </a>
+                
+                <!-- Secondary CTA Button -->
+                <a href="about.html" class="px-8 py-3 rounded-md font-bold text-brandLight dark:text-brandDark border border-brandLight hover:bg-brandLight/10 dark:hover:bg-brandDark/10 transition-all duration-300">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 z-10 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
+        <p>&copy; 2026 Analytix, IMT Nagpur. All rights reserved.</p>
+    </footer>
+
+    <!-- Dark Mode Logic Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const menuToggleBtn = document.getElementById('menu-toggle');
+        const menuCloseBtn = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuPanel = mobileMenu.querySelector('div:last-child');
+
+        // Check for saved user preference in localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        const openMenu = () => {
+            mobileMenu.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                mobileMenuPanel.classList.remove('translate-x-full');
+            });
+        };
+
+        const closeMenu = () => {
+            mobileMenuPanel.classList.add('translate-x-full');
+            setTimeout(() => mobileMenu.classList.add('hidden'), 250);
+        };
+
+        menuToggleBtn.addEventListener('click', openMenu);
+        menuCloseBtn.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+
+        // Toggle logic
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            
+            // Save preference
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>

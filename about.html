@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Analytix IMT Nagpur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandLight: '#0d9488',
+                        brandLightHover: '#0f766e',
+                        brandDark: '#d946ef',
+                        brandDarkHover: '#c026d3',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>body { transition: background-color 0.3s ease, color 0.3s ease; }</style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-gray-700 overflow-hidden bg-white/80 dark:bg-gray-900/80 shadow-sm">
+                    <img src="assets/BAIT.png" alt="BAIT Logo" class="w-full h-full object-cover">
+                </div>
+                <a href="index.html" class="font-bold text-xl">Analytix</a>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="text-brandLight dark:text-brandDark border-b-2 border-brandLight dark:border-brandDark">About Us</a>
+                <a href="events.html">Events</a>
+                <a href="resources.html">Resources</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <button id="menu-toggle" class="md:hidden p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors focus:outline-none" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+                <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors focus:outline-none">
+                    <i id="icon-sun" class="fa-solid fa-sun text-yellow-500 hidden dark:block"></i>
+                    <i id="icon-moon" class="fa-solid fa-moon text-gray-600 block dark:hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[60] hidden md:hidden">
+        <div class="absolute inset-0 bg-black/40" id="mobile-menu-overlay"></div>
+        <div class="absolute right-0 top-0 h-full w-72 max-w-[85%] bg-white dark:bg-gray-900 shadow-2xl p-6 pt-20 transform transition-transform duration-300 translate-x-full">
+            <button id="menu-close" class="absolute top-4 right-4 p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="flex flex-col gap-4 font-medium text-lg">
+                <a href="index.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Home</a>
+                <a href="about.html" class="text-brandLight dark:text-brandDark transition-colors">About Us</a>
+                <a href="events.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Events</a>
+                <a href="resources.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Resources</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <video
+            class="w-full h-full object-cover opacity-20 dark:opacity-30"
+            autoplay
+            loop
+            muted
+            playsinline
+            aria-label="Animated logo"
+        >
+            <source src="assets/animate_the_word_Analytix_for.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 py-12 relative z-10 overflow-hidden">
+        
+        <!-- Mission & Vision Section -->
+        <div class="grid md:grid-cols-2 gap-8 mb-20 relative z-10">
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <h2 class="text-2xl font-bold mb-3">Our Mission</h2>
+                <p class="text-gray-600 dark:text-gray-400">To equip students with the technical skills and analytical mindset required to solve complex business problems.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <h2 class="text-2xl font-bold mb-3">Our Vision</h2>
+                <p class="text-gray-600 dark:text-gray-400">To be the leading student-run analytics hub, producing forward-thinking leaders who leverage IT and analytics.</p>
+            </div>
+        </div>
+
+        <!-- Faculty-in-Charge Section -->
+        <section class="mb-20 bg-white/90 dark:bg-gray-900/90 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 flex flex-col md:flex-row gap-8 items-center backdrop-blur-sm relative z-10 shadow-sm">
+            <div class="w-40 h-40 bg-gray-200 dark:bg-gray-800 rounded-full flex-shrink-0 overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="assets/rkjena.jpg" alt="Dr. Rabindra Kumar Jena" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mb-2">Faculty-in-Charge</h2>
+                <p class="text-brandLight dark:text-brandDark font-semibold mb-4">Dr. Rabindra Kumar Jena</p>
+                <blockquote class="text-gray-600 dark:text-gray-400 italic">"A professor in the area of Business Analytics & IT (BAIT) at the Institute of Management Technology, Nagpur, India. He has degrees in M.Sc., M.Tech(CSE), and Ph.D.(IT) from the Indian Institute of Information Technology and Management, Gwalior, India. He has more than 25 years of experience in teaching and research. He has over 100 research publications in various refereed international journals and conferences. He is the author of four books in the area of Information Technology. He is a guest editor for various reputed journals. He is on the editorial board of many reputed national and international journals. His areas of interest include technology adoption, soft computing techniques, and business analytics <br> He has been acknowledged in the Top 2% of scientists globally for both individual years and his career by Elsevier and Stanford University for the past four consecutive years (2022, 2023, 2024, 2025), and additionally ranked among the Top 5% of scientists worldwide by the SciRank Global registry, based on meticulous bibliometric analysis."</blockquote>
+            </div>
+        </section>
+
+        <!-- Team Grid (12 Members) -->
+        <section class="relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Team</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Placeholder for one of 12 members -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/Sriram1.png" alt="Sriram" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Sriram</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Professional when needed, fun by default</p>
+                    </div>
+                </div>
+                <!-- Copy this block 12 times -->
+                 <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/Malavika.jpg" alt="Malavika Menon" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Malavika Menon</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Less Noise. More Substance.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                        <i class="fa-solid fa-image text-3xl text-gray-400"></i>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Harsh Jayraj</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Silent for the one who dont know, but fun loving and enthusiastic in the right company.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/Ridhim.png" alt="Ridhim Garg" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Ridhim Garg</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Innovative, strategic learner dedicated to solving complex problems and creating impactful, value-driven solutions.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/Namrata.jpg" alt="Namrata Belwal" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Namrata Belwal</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Quietly making a statement</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/Mayank.jpg" alt="Mayank Vasudev Marvaniya" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Mayank Vasudev Marvaniya</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Ice in the veins, calm under pressure. The go-to person when technology misbehaves or when you simply need a hand!</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/Samridhi.jpg" alt="Samridhi Saklani" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Samridhi Saklani</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">A heart that cares and a mind that questions!</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/AYUSHI.jpg" alt="Ayushi Gupta" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Ayushi Gupta</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Believe in building rockets, not waiting for stars.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                        <i class="fa-solid fa-image text-3xl text-gray-400"></i>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Anushka Chaurasia</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Chasing tech, finance, and analytics — because apparently one career crisis wasn't enough.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/Ishika.jpeg" alt="Ishika Dua" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Ishika Dua</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Known for high creativity and my batchmates call me influencer.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/Nidhi.JPG" alt="Nidhi Singh" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Nidhi Singh</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Resting "don't mess with me" face with golden retriever personality.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                        <img src="assets/Shreyash.jpg" alt="Shreyash Sriharsh" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold">Shreyash Sriharsh</h3>
+                        <p class="text-xs text-brandLight dark:text-brandDark mb-2">Senior Analytix</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Finding patterns is my favorite kind of foreplay... with data.</p>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const menuToggleBtn = document.getElementById('menu-toggle');
+        const menuCloseBtn = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuPanel = mobileMenu.querySelector('div:last-child');
+
+        // Restore theme preference logic
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        }
+
+        const openMenu = () => {
+            mobileMenu.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                mobileMenuPanel.classList.remove('translate-x-full');
+            });
+        };
+
+        const closeMenu = () => {
+            mobileMenuPanel.classList.add('translate-x-full');
+            setTimeout(() => mobileMenu.classList.add('hidden'), 250);
+        };
+
+        menuToggleBtn.addEventListener('click', openMenu);
+        menuCloseBtn.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>

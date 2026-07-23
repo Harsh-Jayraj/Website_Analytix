@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Festivities | Analytix IMT Nagpur</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandLight: '#0d9488', // Teal 600
+                        brandLightHover: '#0f766e', 
+                        brandDark: '#d946ef', // Fuchsia 500
+                        brandDarkHover: '#c026d3', 
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(217, 70, 239, 0.6), 0 0 30px rgba(217, 70, 239, 0.4)',
+                        'card-neon': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 10px rgba(217, 70, 239, 0.3)',
+                        'card-neon-strong': '0 0 15px rgba(217, 70, 239, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex-shrink-0 flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-gray-700 overflow-hidden bg-white/80 dark:bg-gray-900/80 shadow-sm">
+                    <img src="assets/BAIT.png" alt="BAIT Logo" class="w-full h-full object-cover">
+                </div>
+                <a href="index.html" class="font-bold text-xl tracking-wide">Analytix</a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">About Us</a>
+                <a href="events.html" class="text-brandLight dark:text-brandDark border-b-2 border-brandLight dark:border-brandDark pb-1">Events</a>
+                <a href="resources.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Resources</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <button id="menu-toggle" class="md:hidden p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors focus:outline-none" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+
+                <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors focus:outline-none">
+                    <i id="icon-sun" class="fa-solid fa-sun text-yellow-500 hidden dark:block"></i>
+                    <i id="icon-moon" class="fa-solid fa-moon text-gray-600 block dark:hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[60] hidden md:hidden">
+        <div class="absolute inset-0 bg-black/40" id="mobile-menu-overlay"></div>
+        <div class="absolute right-0 top-0 h-full w-72 max-w-[85%] bg-white dark:bg-gray-900 shadow-2xl p-6 pt-20 transform transition-transform duration-300 translate-x-full">
+            <button id="menu-close" class="absolute top-4 right-4 p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="flex flex-col gap-4 font-medium text-lg">
+                <a href="index.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">About Us</a>
+                <a href="events.html" class="text-brandLight dark:text-brandDark transition-colors">Events</a>
+                <a href="resources.html" class="hover:text-brandLight dark:hover:text-brandDark transition-colors">Resources</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <video
+            class="w-full h-full object-cover opacity-20 dark:opacity-30"
+            autoplay
+            loop
+            muted
+            playsinline
+            aria-label="Animated logo"
+        >
+            <source src="assets/animate_the_word_Analytix_for.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10 overflow-hidden">
+        
+        <!-- Page Header -->
+        <div class="text-center mb-16 relative z-10">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-brandDark/10 rounded-full blur-[90px] hidden dark:block z-0"></div>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 relative z-10">
+                Events & <span class="text-brandLight dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-brandDark dark:to-purple-500">Festivities</span>
+            </h1>
+            <p class="text-lg text-gray-700 dark:text-gray-200 max-w-2xl mx-auto relative z-10 bg-white/70 dark:bg-black/50 backdrop-blur-sm px-4 py-3 rounded-lg shadow-sm">
+                Discover upcoming hackathons, analytical workshops, and vibrant cultural celebrations happening around the IMT Nagpur campus.
+            </p>
+        </div>
+
+        <!-- Section 1: Analytix Core Events -->
+        <div class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <i class="fa-solid fa-laptop-code text-2xl text-brandLight dark:text-brandDark"></i>
+                <h2 class="text-2xl md:text-3xl font-bold">Analytix Core Events</h2>
+                <div class="flex-grow h-px bg-gray-300 dark:bg-gray-800 ml-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Event Card 1 -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 group hover:dark:shadow-card-neon-strong transition-all duration-300 flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-brandLight/20 to-cyan-500/20 dark:from-brandDark/20 dark:to-purple-900/40 relative flex items-center justify-center border-b border-gray-100 dark:border-gray-800">
+                        <i class="fa-solid fa-book-open text-5xl text-brandLight/50 dark:text-brandDark/50 group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="absolute top-3 right-3 bg-brandLight dark:bg-brandDark text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Academic Boost</span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2"><i class="fa-regular fa-calendar mr-2"></i> End-Semester Support</p>
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-brandLight dark:group-hover:text-brandDark transition-colors">Adhyayan</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">
+                            A last-minute academic lifeline where seniors and peers come together to help students crack the concepts and subjects taught in the first year with confidence.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 group hover:dark:shadow-card-neon-strong transition-all duration-300 flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-brandLight/20 to-cyan-500/20 dark:from-brandDark/20 dark:to-purple-900/40 relative flex items-center justify-center border-b border-gray-100 dark:border-gray-800">
+                        <i class="fa-solid fa-gamepad text-5xl text-brandLight/50 dark:text-brandDark/50 group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2"><i class="fa-regular fa-calendar mr-2"></i> Campus Esports Night</p>
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-brandLight dark:group-hover:text-brandDark transition-colors">Nexus</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">
+                            A high-energy BGMI and gaming event that brings the esports spirit of campus to life, powered by the energy of friendly competition and sharp gameplay.
+                        </p>
+                        <button type="button" data-event-name="Nexus" class="event-modal-trigger w-full py-2 rounded-md font-semibold text-brandLight border border-brandLight hover:bg-brandLight hover:text-white dark:text-brandDark dark:border-brandDark dark:hover:bg-brandDark dark:hover:text-white transition-all duration-300">Join the Action</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 group hover:dark:shadow-card-neon-strong transition-all duration-300 flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-brandLight/20 to-cyan-500/20 dark:from-brandDark/20 dark:to-purple-900/40 relative flex items-center justify-center border-b border-gray-100 dark:border-gray-800">
+                        <i class="fa-solid fa-puzzle-piece text-5xl text-brandLight/50 dark:text-brandDark/50 group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2"><i class="fa-regular fa-calendar mr-2"></i> Flagship Analytix Fest</p>
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-brandLight dark:group-hover:text-brandDark transition-colors">Xetaverse</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">
+                            A fun-packed, interactive experience filled with games, puzzles, and problem-solving hurdles — our flagship event designed to challenge, entertain, and unite the campus.
+                        </p>
+                        <button type="button" data-event-name="Xetaverse" class="event-modal-trigger w-full py-2 rounded-md font-semibold text-brandLight border border-brandLight hover:bg-brandLight hover:text-white dark:text-brandDark dark:border-brandDark dark:hover:bg-brandDark dark:hover:text-white transition-all duration-300">Be Part of It</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 2: Other Events We Are Part Of -->
+        <div>
+            <div class="flex items-center gap-4 mb-8">
+                <i class="fa-solid fa-masks-theater text-2xl text-brandLight dark:text-brandDark"></i>
+                <h2 class="text-2xl md:text-3xl font-bold">Other Events We Are Part Of</h2>
+                <div class="flex-grow h-px bg-gray-300 dark:bg-gray-800 ml-4"></div>
+            </div>
+
+            <!-- List Layout for Festivities -->
+            <div class="space-y-6">
+                
+                <!-- Festivity Item 1 -->
+                <div class="flex flex-col md:flex-row bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 group hover:dark:shadow-card-neon transition-all duration-300">
+                    <div class="md:w-1/3 h-48 md:h-auto bg-gray-200 dark:bg-gray-800 relative flex items-center justify-center">
+                        <i class="fa-solid fa-users text-4xl text-gray-400 dark:text-gray-600"></i>
+                    </div>
+                    <div class="p-6 md:w-2/3 flex flex-col justify-center">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold group-hover:text-brandLight dark:group-hover:text-brandDark transition-colors">Concord</h3>
+                            <span class="text-xs font-semibold bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full">Flagship Event</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            The inter-college flagship event of IMT Nagpur organized by the Concord committee, of which our forum is an integral part.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Festivity Item 2 -->
+                <div class="flex flex-col md:flex-row bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 group hover:dark:shadow-card-neon transition-all duration-300">
+                    <div class="md:w-1/3 h-48 md:h-auto bg-gray-200 dark:bg-gray-800 relative flex items-center justify-center">
+                        <i class="fa-solid fa-gamepad text-4xl text-gray-400 dark:text-gray-600"></i>
+                    </div>
+                    <div class="p-6 md:w-2/3 flex flex-col justify-center">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold group-hover:text-brandLight dark:group-hover:text-brandDark transition-colors">M34</h3>
+                            <span class="text-xs font-semibold bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full">Competitive Games</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            An event organized by the Milestone committee where participants compete to win in games created by our forum.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Festivity Item 3 -->
+                <div class="flex flex-col md:flex-row bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 group hover:dark:shadow-card-neon transition-all duration-300">
+                    <div class="md:w-1/3 h-48 md:h-auto bg-gray-200 dark:bg-gray-800 relative flex items-center justify-center">
+                        <i class="fa-solid fa-futbol text-4xl text-gray-400 dark:text-gray-600"></i>
+                    </div>
+                    <div class="p-6 md:w-2/3 flex flex-col justify-center">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold group-hover:text-brandLight dark:group-hover:text-brandDark transition-colors">Yugantar</h3>
+                            <span class="text-xs font-semibold bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full">Sports Event</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            A sports event organized by the sports committee where committees and forums make teams using their members and compete with each other.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Event Popup Modal -->
+    <div id="event-modal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/60 px-4">
+        <div class="w-full max-w-md rounded-2xl bg-white dark:bg-gray-900 p-6 shadow-2xl border border-gray-200 dark:border-gray-800">
+            <div class="flex items-start justify-between gap-4">
+                <div>
+                    <p class="text-sm font-semibold uppercase tracking-wide text-brandLight dark:text-brandDark">Upcoming Event</p>
+                    <h3 id="event-modal-title" class="text-xl font-bold mt-1">Event</h3>
+                </div>
+                <button id="event-modal-close" type="button" class="rounded-full p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Close popup">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">
+                This event has not started yet. Please check back later for updates.
+            </p>
+            <button id="event-modal-ok" type="button" class="mt-6 w-full rounded-lg bg-brandLight px-4 py-2 font-semibold text-white hover:bg-brandLightHover transition-colors dark:bg-brandDark dark:hover:bg-brandDarkHover">
+                Okay
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 z-10 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm mt-auto">
+        <p>&copy; 2026 Analytix, IMT Nagpur. All rights reserved.</p>
+    </footer>
+
+    <!-- Dark Mode Logic Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const menuToggleBtn = document.getElementById('menu-toggle');
+        const menuCloseBtn = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuPanel = mobileMenu.querySelector('div:last-child');
+        const eventModal = document.getElementById('event-modal');
+        const eventModalTitle = document.getElementById('event-modal-title');
+        const eventModalCloseBtn = document.getElementById('event-modal-close');
+        const eventModalOkBtn = document.getElementById('event-modal-ok');
+        const eventModalTriggers = document.querySelectorAll('.event-modal-trigger');
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        const openMenu = () => {
+            mobileMenu.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                mobileMenuPanel.classList.remove('translate-x-full');
+            });
+        };
+
+        const openEventModal = (eventName) => {
+            eventModalTitle.textContent = eventName;
+            eventModal.classList.remove('hidden');
+            eventModal.classList.add('flex');
+        };
+
+        const closeEventModal = () => {
+            eventModal.classList.add('hidden');
+            eventModal.classList.remove('flex');
+        };
+
+        eventModalTriggers.forEach((button) => {
+            button.addEventListener('click', () => {
+                openEventModal(button.dataset.eventName || 'Event');
+            });
+        });
+
+        eventModalCloseBtn.addEventListener('click', closeEventModal);
+        eventModalOkBtn.addEventListener('click', closeEventModal);
+        eventModal.addEventListener('click', (event) => {
+            if (event.target === eventModal) {
+                closeEventModal();
+            }
+        });
+
+        const closeMenu = () => {
+            mobileMenuPanel.classList.add('translate-x-full');
+            setTimeout(() => mobileMenu.classList.add('hidden'), 250);
+        };
+
+        menuToggleBtn.addEventListener('click', openMenu);
+        menuCloseBtn.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
